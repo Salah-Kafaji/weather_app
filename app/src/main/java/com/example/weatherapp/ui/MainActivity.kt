@@ -18,7 +18,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                 if (isCollected){
                     val result =  dataManager.getWeatherFeeds()
                     val adapter = WeatherDataAdapter(dataManager.getWeatherFeeds())
-                    val dayAdapter = DayWeatherDataAdapter(dataManager.getWeatherFeeds())
+                    val dayAdapter = DayWeatherDataAdapter(dataManager.getDayWeatherFeeds())
                     runOnUiThread{
                         binding.weatherRecycleView.adapter = adapter
                         binding.dayWeatherRecycleView.adapter = dayAdapter

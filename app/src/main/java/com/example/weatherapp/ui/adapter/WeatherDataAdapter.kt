@@ -21,7 +21,7 @@ class WeatherDataAdapter (private val list: List<WeatherIntervals>): RecyclerVie
     override fun onBindViewHolder(holder: WeatherViewHolder, position: Int) {
         val currentValue = list[position]
         holder.binding.apply {
-            valueTemperature.text = currentValue.temperature.temperatureValue.toString()
+            valueTemperature.text = currentValue.field.temperatureValue.toString()
             valueTime.text  = currentValue.timeStep?.toDate()?.toFormattedString("HH:mm")
         }
     }

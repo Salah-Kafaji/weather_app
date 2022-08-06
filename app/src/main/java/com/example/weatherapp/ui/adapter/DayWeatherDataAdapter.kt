@@ -7,8 +7,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.weatherapp.R
 import com.example.weatherapp.databinding.DayWeatherItemBinding
 import com.example.weatherapp.model.response.WeatherIntervals
-import com.example.weatherapp.util.toDate
-import com.example.weatherapp.util.toFormattedString
 
 class DayWeatherDataAdapter(private val list: List<WeatherIntervals>): RecyclerView.Adapter<DayWeatherDataAdapter.DayWeatherViewHolder>(){
 
@@ -19,8 +17,11 @@ class DayWeatherDataAdapter(private val list: List<WeatherIntervals>): RecyclerV
     override fun onBindViewHolder(holder: DayWeatherViewHolder, position: Int) {
         val currentValue = list[position]
         holder.binding.apply {
-            valueTemperature.text = currentValue.temperature.temperatureValue.toString()+"C"
-            valueTime.text  = currentValue.timeStep?.toDate()?.toFormattedString("HH:mm")
+            valueTemperature.text = currentValue.field.temperatureValue.toString()+"C"
+            valueHumidity.text = currentValue.field.humidityValue.toString()+"%"
+            valueWindSpeed.text = currentValue.field.windSpeedValue.toString()+"km/h"
+            valueCloudCover.text = currentValue.field.cloudCoverValue.toString()+"%"
+            valueUvIndex.text = currentValue.field.uvIndexValue.toString()+"Low"
         }
     }
 

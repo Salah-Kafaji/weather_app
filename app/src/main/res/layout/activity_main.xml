@@ -8,9 +8,30 @@
     android:layout_height="match_parent"
     tools:context=".ui.MainActivity">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/textweather"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:fontFamily="sans-serif-black"
+            android:text="The weather now"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="24dp"
+            tools:textColor="@color/black" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/day_weather_recycle_view"
-        tool:listitem="@layout/day_weather_item"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -20,22 +41,86 @@
         app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
+        tool:listitem="@layout/day_weather_item">
 
 
     </androidx.recyclerview.widget.RecyclerView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:textAlignment="center"
+        app:layout_constraintTop_toBottomOf="@+id/day_weather_recycle_view"
+        tools:layout_editor_absoluteX="0dp">
+
+
+        <TextView
+            android:id="@+id/textTemperature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:fontFamily="sans-serif-black"
+            android:text="temp"
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/texthumi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="38dp"
+            android:fontFamily="sans-serif-black"
+            android:text="humi"
+            android:textColor="#FFFFFF"
+            app:layout_constraintStart_toEndOf="@+id/textTemperature"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:textColor="@color/black" />
+
+
+        <TextView
+            android:id="@+id/textwindSpeed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:fontFamily="sans-serif-black"
+            android:text="Wind Speed"
+            android:textColor="#FFFFFF"
+            app:layout_constraintStart_toEndOf="@+id/texthumi"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/textTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:fontFamily="sans-serif-black"
+            android:text="Time"
+            android:textColor="#FFFFFF"
+            app:layout_constraintStart_toEndOf="@+id/textwindSpeed"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:textColor="@color/black" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/weather_recycle_view"
         android:layout_width="match_parent"
         android:layout_height="310dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:background="@color/transparent"
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/day_weather_recycle_view"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
         tool:listitem="@layout/weather_view_item">
 
 

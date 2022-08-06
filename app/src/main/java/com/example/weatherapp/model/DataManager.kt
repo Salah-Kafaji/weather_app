@@ -9,6 +9,11 @@ class DataManager: DataManagerStarter {
                 return Client.weatherFeeds
         }
 
+        fun getDayWeatherFeeds(): MutableList<WeatherIntervals> {
+                return Client.dayWeatherFeeds
+        }
+
+
         override fun setStartSignal(onDataCollected: (isCollected: Boolean) -> Unit ) {
                 Client.getRequestedWeather(onDataCollected)
         }
