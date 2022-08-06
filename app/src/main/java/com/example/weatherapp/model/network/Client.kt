@@ -26,7 +26,6 @@ object Client {
             .addQueryParameter("units","metric")
             .addQueryParameter("timesteps","1h")
             .addQueryParameter("startTime","now")
-//            .addQueryParameter("endTime","nowPlus6h")
             .addQueryParameter("timezone","Asia/Baghdad")
             .addQueryParameter("apikey","DAShOSPYbnLLJUhJs4KOjqnfyELN6jVR")
             .build()
@@ -44,7 +43,6 @@ object Client {
                         weatherFeeds.add(interval)
                     }
                     dayWeatherFeeds.add(responseResult.weatherData.timeLine[0].interval!![0])
-                    Log.i("RESULTS", weatherFeeds.toString())
                 }
                 onDataCollected(true)
             }

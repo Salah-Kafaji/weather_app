@@ -16,14 +16,12 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         binding.apply {
             dataManager.setStartSignal() { isCollected ->
                 if (isCollected){
-                    val result =  dataManager.getWeatherFeeds()
                     val adapter = WeatherDataAdapter(dataManager.getWeatherFeeds())
                     val dayAdapter = DayWeatherDataAdapter(dataManager.getDayWeatherFeeds())
                     runOnUiThread{
                         binding.weatherRecycleView.adapter = adapter
                         binding.dayWeatherRecycleView.adapter = dayAdapter
                     }
-                    Log.i("RESULT", result.toString())
                 }
             }
         }
