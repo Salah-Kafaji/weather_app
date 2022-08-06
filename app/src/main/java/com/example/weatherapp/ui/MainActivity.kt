@@ -1,6 +1,5 @@
 package com.example.weatherapp.ui
 
-import android.util.Log
 import com.example.weatherapp.databinding.ActivityMainBinding
 import com.example.weatherapp.model.DataManager
 import com.example.weatherapp.ui.adapter.DayWeatherDataAdapter
@@ -14,7 +13,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     private val dataManager  =  DataManager()
     override fun setUp() {
         binding.apply {
-            dataManager.setStartSignal() { isCollected ->
+            dataManager.setStartSignal { isCollected ->
                 if (isCollected){
                     val adapter = WeatherDataAdapter(dataManager.getWeatherFeeds())
                     val dayAdapter = DayWeatherDataAdapter(dataManager.getDayWeatherFeeds())
