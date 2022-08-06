@@ -7,24 +7,31 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.weatherapp.R
 import com.example.weatherapp.databinding.WeatherViewItemBinding
 import com.example.weatherapp.model.response.WeatherIntervals
+import com.example.weatherapp.util.toDate
+import com.example.weatherapp.util.toFormattedString
 
-class WeatherDataAdapter (private val list: List<WeatherIntervals>): RecyclerView.Adapter<WeatherDataAdapter.VideoViewHolder>(){
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VideoViewHolder {
+class WeatherDataAdapter (private val list: List<WeatherIntervals>): RecyclerView.Adapter<WeatherDataAdapter.WeatherViewHolder>(){
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WeatherViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.weather_view_item, parent, false)
-        return VideoViewHolder(view)
+        return WeatherViewHolder(view)
     }
-    override fun onBindViewHolder(holder: VideoViewHolder, position: Int) {
+
+    override fun onBindViewHolder(holder: WeatherViewHolder, position: Int) {
         val currentValue = list[position]
         holder.binding.apply {
             valueTemperature.text = currentValue.temperature.temperatureValue.toString()
+            valueTime.text  = currentValue.timeStep?.toDate()?.toFormattedString("HH:mm")
         }
     }
 
     override fun getItemCount(): Int = list.size
 
-    class VideoViewHolder(viewItem: View) : RecyclerView.ViewHolder(viewItem){
+    class WeatherViewHolder(viewItem: View) : RecyclerView.ViewHolder(viewItem){
         val binding = WeatherViewItemBinding.bind(viewItem)
     }
 
 }
+
+

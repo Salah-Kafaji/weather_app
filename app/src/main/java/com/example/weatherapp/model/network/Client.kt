@@ -10,7 +10,6 @@ import java.io.IOException
 object Client {
     private val weatherApiClint = OkHttpClient()
     val weatherFeeds = mutableListOf<WeatherIntervals>()
-
     fun getRequestedWeather(onDataCollected :(isCollected: Boolean) -> Unit) {
          val url = HttpUrl.Builder()
             .scheme("https")
@@ -22,7 +21,7 @@ object Client {
             .addQueryParameter("units","metric")
             .addQueryParameter("timesteps","1h")
             .addQueryParameter("startTime","now")
-            .addQueryParameter("endTime","nowPlus6h")
+//            .addQueryParameter("endTime","nowPlus6h")
             .addQueryParameter("timezone","Asia/Baghdad")
             .addQueryParameter("apikey","DAShOSPYbnLLJUhJs4KOjqnfyELN6jVR")
             .build()

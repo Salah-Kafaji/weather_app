@@ -46,5 +46,28 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:textColor="@color/black" />
 
+    <TextView
+        android:id="@+id/textTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:fontFamily="sans-serif-black"
+        android:text="Time : "
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toStartOf="@+id/valueTime"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/valueTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-light"
+        android:text="00:00:00"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:textColor="@color/black"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
